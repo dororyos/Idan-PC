@@ -18,6 +18,7 @@ function setMenuOpen(isOpen) {
   }
 
   siteHeader.classList.toggle("menu-open", isOpen);
+  document.body.classList.toggle("menu-open", isOpen);
   menuToggle.setAttribute("aria-expanded", String(isOpen));
 }
 
@@ -132,16 +133,16 @@ hashLinks.forEach((link) => {
 
     event.preventDefault();
 
+    if (window.innerWidth <= 760 && siteHeader?.classList.contains("menu-open")) {
+      setMenuOpen(false);
+    }
+
     const targetTop = targetElement.getBoundingClientRect().top + window.scrollY - getScrollOffset();
 
     window.scrollTo({
       top: Math.max(0, targetTop),
       behavior: "smooth"
     });
-
-    if (window.innerWidth <= 760) {
-      setMenuOpen(false);
-    }
   });
 });
 
