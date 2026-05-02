@@ -99,13 +99,19 @@
         </span>
       </a>
 
-      <nav class="site-nav" aria-label="ניווט ראשי">
+      <nav class="site-nav" id="siteNav" aria-label="ניווט ראשי">
         <a href="#services">שירותים</a>
         <a href="#clients">לקוחות</a>
         <a href="#faq">שאלות נפוצות</a>
+        <a class="menu-download" href="https://anydesk.com/en/downloads" target="_blank" rel="noreferrer">AnyDesk</a>
       </nav>
 
       <div class="header-actions">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="פתחו תפריט">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <a class="header-phone" href="tel:0544411665" aria-label="התקשרו לעידן המחשבים">
           <span class="header-phone-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
@@ -113,12 +119,10 @@
             </svg>
           </span>
         </a>
-        <a class="header-download" href="https://anydesk.com/en/downloads" target="_blank" rel="noreferrer" aria-label="הורדת AnyDesk">
-          <img src="assets/anydesk-logo.svg" alt="AnyDesk">
-        </a>
         <a class="nav-cta" href="#contact">ספרו לי עוד</a>
       </div>
     </header>
+    <div class="menu-backdrop" aria-hidden="true"></div>
 
     <main>
       <section class="hero reveal" id="hero">

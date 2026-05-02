@@ -117,6 +117,10 @@ img {
   box-shadow: var(--shadow);
 }
 
+.menu-backdrop {
+  display: none;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -170,6 +174,43 @@ img {
   justify-content: center;
 }
 
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(11, 93, 107, 0.1);
+  color: var(--brand-deep);
+  box-shadow: 0 10px 24px rgba(11, 93, 107, 0.14);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.menu-open .menu-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .site-nav a {
   color: var(--muted);
   font-weight: 600;
@@ -177,6 +218,12 @@ img {
   padding: 10px 14px;
   border-radius: 999px;
   background: rgba(11, 93, 107, 0.04);
+}
+
+.menu-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-actions {
@@ -187,7 +234,6 @@ img {
 }
 
 .header-phone,
-.header-download,
 .nav-cta,
 .button,
 .floating-whatsapp {
@@ -224,22 +270,6 @@ img {
   fill: currentColor;
 }
 
-.header-download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(239, 68, 59, 0.18);
-  box-shadow: 0 14px 32px rgba(23, 33, 43, 0.1);
-}
-
-.header-download img {
-  width: 110px;
-  height: auto;
-}
-
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -254,12 +284,12 @@ img {
 
 .site-nav a:hover,
 .header-phone:hover,
-.header-download:hover,
 .nav-cta:hover,
 .button:hover,
 .logo-card:hover,
 .contact-option:hover,
-.floating-whatsapp:hover {
+.floating-whatsapp:hover,
+.menu-toggle:hover {
   transform: translateY(-3px);
 }
 
@@ -847,24 +877,56 @@ img {
     border-radius: 30px;
     padding: 14px;
     top: 10px;
+    position: relative;
+    z-index: 30;
+  }
+
+  .menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(9, 23, 31, 0.34);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+    z-index: 24;
+  }
+
+  .site-header.menu-open + .menu-backdrop {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .site-nav {
     order: 3;
     width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(255, 250, 242, 0.98);
+    border: 1px solid rgba(11, 93, 107, 0.08);
+    border-radius: 22px;
+    box-shadow: 0 20px 34px rgba(19, 34, 42, 0.14);
+  }
+
+  .site-header.menu-open .site-nav {
+    display: flex;
   }
 
   .header-actions {
     order: 2;
     width: 100%;
     display: grid;
-    grid-template-columns: 52px minmax(0, 96px) minmax(0, 1fr);
+    grid-template-columns: 52px 52px minmax(0, 1fr);
     justify-content: stretch;
     align-items: center;
     gap: 8px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
   }
 
   .hero,
@@ -897,23 +959,13 @@ img {
   }
 
   .site-nav a {
-    min-height: 42px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 10px 14px;
-    border-radius: 999px;
+    justify-content: flex-start;
+    padding: 11px 14px;
+    border-radius: 16px;
     background: rgba(11, 93, 107, 0.06);
-  }
-
-  .header-download {
-    width: auto;
-    min-height: 52px;
-    padding: 8px 10px;
-  }
-
-  .header-download img {
-    width: 78px;
   }
 
   .nav-cta {
@@ -1026,8 +1078,8 @@ img {
   }
 
   .site-nav a,
+  .menu-toggle,
   .header-phone,
-  .header-download,
   .nav-cta,
   .button,
   .contact-option {
@@ -1035,23 +1087,19 @@ img {
   }
 
   .header-actions {
-    grid-template-columns: 48px 84px minmax(0, 1fr);
+    grid-template-columns: 48px 48px minmax(0, 1fr);
     gap: 6px;
+  }
+
+  .menu-toggle {
+    width: 48px;
+    height: 48px;
   }
 
   .header-phone {
     width: 48px;
     min-width: 48px;
     height: 48px;
-  }
-
-  .header-download {
-    min-height: 48px;
-    padding: 7px 8px;
-  }
-
-  .header-download img {
-    width: 68px;
   }
 
   .nav-cta {
@@ -1110,8 +1158,13 @@ img {
   }
 
   .header-actions {
-    grid-template-columns: 44px 76px minmax(0, 1fr);
+    grid-template-columns: 44px 44px minmax(0, 1fr);
     gap: 6px;
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
   }
 
   .header-phone {
@@ -1147,10 +1200,6 @@ img {
     bottom: 8px;
     padding: 11px 12px;
     font-size: 0.88rem;
-  }
-
-  .header-download img {
-    width: 60px;
   }
 
   .nav-cta {

@@ -5,9 +5,50 @@ const formFeedback = document.getElementById("formFeedback");
 const whatsappLinks = document.querySelectorAll(".whatsapp-link");
 const revealElements = document.querySelectorAll(".reveal");
 const siteHeader = document.querySelector(".site-header");
+const menuToggle = document.querySelector(".menu-toggle");
+const siteNav = document.getElementById("siteNav");
+const menuBackdrop = document.querySelector(".menu-backdrop");
 const hashLinks = document.querySelectorAll('a[href^="#"]');
 const THANK_YOU_PAGE = "thank-you.html";
 window.dataLayer = window.dataLayer || [];
+
+function setMenuOpen(isOpen) {
+  if (!siteHeader || !menuToggle) {
+    return;
+  }
+
+  siteHeader.classList.toggle("menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+}
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteHeader?.classList.contains("menu-open");
+    setMenuOpen(!isOpen);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!siteHeader || window.innerWidth > 760) {
+      return;
+    }
+
+    const target = event.target;
+
+    if (target instanceof Node && !siteHeader.contains(target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) {
+      setMenuOpen(false);
+    }
+  });
+}
+
+menuBackdrop?.addEventListener("click", () => {
+  setMenuOpen(false);
+});
 
 whatsappLinks.forEach((link) => {
   const linkMessage = link.dataset.whatsappText?.trim() || "שלום, אשמח לקבל פרטים על שירותי עידן המחשבים.";
@@ -97,6 +138,18 @@ hashLinks.forEach((link) => {
       top: Math.max(0, targetTop),
       behavior: "smooth"
     });
+
+    if (window.innerWidth <= 760) {
+      setMenuOpen(false);
+    }
+  });
+});
+
+siteNav?.querySelectorAll('a[target="_blank"]').forEach((link) => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 760) {
+      setMenuOpen(false);
+    }
   });
 });
 
