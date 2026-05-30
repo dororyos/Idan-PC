@@ -37,7 +37,7 @@
           "name": "עידן המחשבים",
           "url": "https://my365.co.il/",
           "telephone": "+972-54-441-1665",
-          "email": "IDAN_pc@walla.co.il",
+          "email": "lior@my365.co.il",
           "logo": "https://my365.co.il/assets/logos/%D7%9C%D7%95%D7%92%D7%95.jpg",
           "contactPoint": [
             {
@@ -82,6 +82,8 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">דלגו לתוכן המרכזי</a>
+
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
 
@@ -95,7 +97,7 @@
         <img class="brand-logo" src="assets/logos/לוגו.jpg" alt="לוגו עידן המחשבים">
         <span class="brand-text">
           <strong>עידן המחשבים</strong>
-          <small>שירותי מחשוב, שרתים ואבטחת מידע לעסקים</small>
+          <small>שירותי מחשוב, שרתים<br>ואבטחת מידע לעסקים</small>
         </span>
       </a>
 
@@ -103,7 +105,6 @@
         <a href="#services">שירותים</a>
         <a href="#clients">לקוחות</a>
         <a href="#faq">שאלות נפוצות</a>
-        <a class="menu-download" href="https://anydesk.com/en/downloads" target="_blank" rel="noreferrer">AnyDesk</a>
       </nav>
 
       <div class="header-actions">
@@ -112,6 +113,29 @@
           <span></span>
           <span></span>
         </button>
+        <div class="a11y-widget">
+          <button class="a11y-trigger" id="accessibilityTrigger" type="button" aria-expanded="false" aria-controls="accessibilityPanel" aria-label="פתחו אפשרויות נגישות">
+            <span aria-hidden="true">♿</span>
+          </button>
+
+          <section class="a11y-panel" id="accessibilityPanel" hidden aria-label="אפשרויות נגישות">
+            <div class="a11y-panel-header">
+              <h2 class="a11y-title">אפשרויות נגישות</h2>
+              <button class="a11y-close" id="accessibilityClose" type="button" aria-label="סגרו תפריט נגישות">×</button>
+            </div>
+
+            <div class="a11y-actions">
+              <button class="a11y-option" type="button" data-a11y-action="font-up">הגדלת טקסט</button>
+              <button class="a11y-option" type="button" data-a11y-action="font-down">הקטנת טקסט</button>
+              <button class="a11y-option" type="button" data-a11y-toggle="high-contrast" aria-pressed="false">ניגודיות גבוהה</button>
+              <button class="a11y-option" type="button" data-a11y-toggle="underline-links" aria-pressed="false">הדגשת קישורים</button>
+              <button class="a11y-option" type="button" data-a11y-toggle="readable-font" aria-pressed="false">גופן קריא</button>
+              <button class="a11y-option" type="button" data-a11y-toggle="line-spacing" aria-pressed="false">ריווח שורות</button>
+              <button class="a11y-option" type="button" data-a11y-toggle="pause-animations" aria-pressed="false">עצירת אנימציות</button>
+              <button class="a11y-option a11y-reset" type="button" data-a11y-action="reset">איפוס</button>
+            </div>
+          </section>
+        </div>
         <a class="header-phone" href="tel:0544411665" aria-label="התקשרו לעידן המחשבים">
           <span class="header-phone-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" focusable="false">
@@ -124,7 +148,7 @@
     </header>
     <div class="menu-backdrop" aria-hidden="true"></div>
 
-    <main>
+    <main id="mainContent" tabindex="-1">
       <section class="hero reveal" id="hero">
         <div class="hero-copy">
           <p class="eyebrow">שירותי מחשוב, אבטחה ותמיכה לעסקים שרוצים לעבוד יציב, מהר ובשקט</p>
@@ -141,13 +165,19 @@
 
           <ul class="hero-points">
             <li>פתרונות מחשוב ואבטחה לעסקים קטנים וגדולים</li>
+            <li>פריסת רשתות תקשורת וסיבים אופטיים לעסקים</li>
+            <li>התקנת שרתים ומצלמות, גיבוי ואבטחת מידע במקום אחד</li>
             <li>ניטור יומיומי, מענה מהיר וליווי עד פתרון מלא</li>
-            <li>תשתיות, שרתים, גיבויים, אבטחת מידע ומצלמות במקום אחד</li>
           </ul>
         </div>
 
         <aside class="hero-panel">
           <div class="hero-panel-card reveal">
+            <div class="support-visual" aria-hidden="true">
+              <span>24/7</span>
+              <span>Secure</span>
+              <span>Monitor</span>
+            </div>
             <span class="panel-badge">שירות מקצה לקצה</span>
             <h2>צוות התמיכה שלנו ילווה אתכם בכל עת</h2>
             <p>
@@ -173,25 +203,10 @@
         </aside>
       </section>
 
-      <section class="trust-strip reveal" aria-label="מסר מרכזי">
-        <div class="trust-card">
-          <strong>Outlook לעסקים</strong>
-          <span>דוא"ל מתקדם ומאובטח לצוותים ולקוחות</span>
-        </div>
-        <div class="trust-card">
-          <strong>Check Point / FortiGate</strong>
-          <span>מערכות אבטחה חכמות לניטור והגנה</span>
-        </div>
-        <div class="trust-card">
-          <strong>פריסת תשתיות</strong>
-          <span>רשתות תקשורת וסיבים אופטיים לעסקים</span>
-        </div>
-      </section>
-
-      <section class="why-us-section" id="why-us" aria-label="למה לבחור בנו">
+      <section class="why-us-section" id="why-us" aria-labelledby="whyUsTitle">
         <div class="section-heading reveal">
           <p class="eyebrow">למה לבחור בנו</p>
-          <h2>פתרונות מחשוב עם ליווי אמיתי, זמינות גבוהה וחשיבה עסקית</h2>
+          <h2 id="whyUsTitle">פתרונות מחשוב עם ליווי אמיתי, זמינות גבוהה וחשיבה עסקית</h2>
           <p class="section-lead">
             אנחנו לא רק מטפלים בתקלות. אנחנו עוזרים לעסק לעבוד מהר יותר, בטוח יותר ועם פחות עצירות בדרך.
           </p>
@@ -220,10 +235,10 @@
         </div>
       </section>
 
-      <section class="services-section" id="services">
+      <section class="services-section" id="services" aria-labelledby="servicesTitle">
         <div class="section-heading reveal">
           <p class="eyebrow">השירותים שלנו</p>
-          <h2>פתרונות מחשוב ואבטחה שנבנים סביב הצרכים של העסק שלכם</h2>
+          <h2 id="servicesTitle">פתרונות מחשוב ואבטחה שנבנים סביב הצרכים של העסק שלכם</h2>
           <p class="section-lead">
             מהעסק הקטן ועד הארגון הגדול, אנחנו מקימים, מנהלים ומאבטחים את סביבת העבודה
             הדיגיטלית שלכם מקצה לקצה.
@@ -273,10 +288,10 @@
         </div>
       </section>
 
-      <section class="support-section reveal" aria-label="תמיכה">
+      <section class="support-section reveal" aria-labelledby="supportTitle">
         <div class="support-copy">
           <p class="eyebrow">שקט תפעולי לעסק</p>
-          <h2>אנחנו כאן בשבילכם, למען המידע שלכם</h2>
+          <h2 id="supportTitle">אנחנו כאן בשבילכם, למען המידע שלכם</h2>
           <p>
             במקרה של תקלה, ולו הקטנה ביותר, מיד ניצור אתכם קשר, נעדכן בפירוט במצב המערכות
             ונישאר עמכם בקשר עד למציאת פתרון מלא של התקלה וחזרה לעבודה תקינה.
@@ -299,32 +314,32 @@
         </div>
       </section>
 
-      <section class="clients-section" id="clients" aria-label="לקוחות">
+      <section class="clients-section" id="clients" aria-labelledby="clientsTitle">
         <div class="section-heading reveal">
           <p class="eyebrow">כבר עובדים איתנו</p>
-          <h2>הלקוחות שסומכים על עידן המחשבים</h2>
+          <h2 id="clientsTitle">הלקוחות שסומכים על עידן המחשבים</h2>
         </div>
 
-        <div class="logo-grid">
-          <article class="logo-card reveal"><img src="assets/logos/SBM.jpg" alt="לוגו SBM" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/ברוש.jpg" alt="לוגו ברוש" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/גלטקס.png" alt="לוגו גלטקס" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/ליש.png" alt="לוגו ל.י.ש מסיעי כהן" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/לסיקו.jpg" alt="לוגו לסיקו" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/מאור.jpg" alt="לוגו מאור מחממי תנובה" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/ניצבים.jpg" alt="לוגו ניצבים" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/עמי אלומיניום.png" alt="לוגו עמי תעשיות אלומיניום" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/פולדמיר.jpg" alt="לוגו פולדמיר" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/קורן.png" alt="לוגו חיוך קורן" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/רז קל.jpg" alt="לוגו רז קל" loading="lazy" decoding="async"></article>
-          <article class="logo-card reveal"><img src="assets/logos/רכמ.png" alt='לוגו ר.כ.מ יבוא שיווק שירות מכונות' loading="lazy" decoding="async"></article>
+        <div class="logo-grid" role="list" aria-label="לוגואים של לקוחות">
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/SBM.jpg" alt="לוגו SBM" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/ברוש.jpg" alt="לוגו ברוש" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/גלטקס.png" alt="לוגו גלטקס" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/ליש.png" alt="לוגו ל.י.ש מסיעי כהן" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/לסיקו.jpg" alt="לוגו לסיקו" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/מאור.jpg" alt="לוגו מאור מחממי תנובה" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/ניצבים.jpg" alt="לוגו ניצבים" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/עמי אלומיניום.png" alt="לוגו עמי תעשיות אלומיניום" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/פולדמיר.jpg" alt="לוגו פולדמיר" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/קורן.png" alt="לוגו חיוך קורן" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/רז קל.jpg" alt="לוגו רז קל" loading="lazy" decoding="async"></article>
+          <article class="logo-card reveal" role="listitem"><img src="assets/logos/רכמ.png" alt='לוגו ר.כ.מ יבוא שיווק שירות מכונות' loading="lazy" decoding="async"></article>
         </div>
       </section>
 
-      <section class="testimonials-section" id="testimonials" aria-label="המלצות לקוחות">
+      <section class="testimonials-section" id="testimonials" aria-labelledby="testimonialsTitle">
         <div class="section-heading reveal">
           <p class="eyebrow">מה הלקוחות אומרים</p>
-          <h2>יחסי עבודה ארוכי טווח מתחילים בשירות מדויק ובמענה שאפשר לסמוך עליו</h2>
+          <h2 id="testimonialsTitle">יחסי עבודה ארוכי טווח מתחילים בשירות מדויק ובמענה שאפשר לסמוך עליו</h2>
         </div>
 
         <div class="testimonials-grid">
@@ -345,42 +360,42 @@
         </div>
       </section>
 
-      <section class="faq-section" id="faq" aria-label="שאלות נפוצות">
+      <section class="faq-section" id="faq" aria-labelledby="faqTitle">
         <div class="section-heading reveal">
           <p class="eyebrow">שאלות נפוצות</p>
-          <h2>מה חשוב לדעת לפני שבוחרים ספק שירותי מחשוב לעסק?</h2>
+          <h2 id="faqTitle">מה חשוב לדעת לפני שבוחרים ספק שירותי מחשוב לעסק?</h2>
           <p class="section-lead">
-            ריכזנו תשובות קצרות לשאלות נפוצות על שירותי מחשוב, שרתים, אבטחת מידע ותמיכה לעסקים.
+            ריכזנו תשובות קצרות לשאלות נפוצות על שירותי מחשוב ותמיכה לעסקים.
           </p>
         </div>
 
         <div class="faq-grid">
-          <article class="faq-card reveal">
-            <h3>אילו שירותי מחשוב לעסקים אתם מספקים?</h3>
+          <details class="faq-card reveal">
+            <summary>אילו שירותי מחשוב לעסקים אתם מספקים?</summary>
             <p>אנחנו מספקים פריסת תשתיות, שרתי אינטרנט, Outlook לעסקים, Firewall, אנטי וירוס לרשתות, מערכות גיבוי, מערכות אבטחה ומצלמות אבטחה.</p>
-          </article>
+          </details>
 
-          <article class="faq-card reveal">
-            <h3>האם אתם נותנים תמיכה שוטפת לעסקים?</h3>
+          <details class="faq-card reveal">
+            <summary>האם אתם נותנים תמיכה שוטפת לעסקים?</summary>
             <p>כן. צוות התמיכה שלנו מנטר מחשבים ושרתים מדי יום, מזהה תקלות בזמן ומלווה אתכם עד לפתרון מלא וחזרה לעבודה תקינה.</p>
-          </article>
+          </details>
 
-          <article class="faq-card reveal">
-            <h3>האם אתם מתאימים גם לעסקים קטנים?</h3>
+          <details class="faq-card reveal">
+            <summary>האם אתם מתאימים גם לעסקים קטנים?</summary>
             <p>בהחלט. השירותים שלנו מתאימים לעסקים קטנים, בינוניים וגדולים, עם התאמה לפעילות, לתשתיות ולרמת האבטחה שכל עסק צריך.</p>
-          </article>
+          </details>
 
-          <article class="faq-card reveal">
-            <h3>איך אפשר ליצור קשר ולקבל הצעה?</h3>
+          <details class="faq-card reveal">
+            <summary>איך אפשר ליצור קשר ולקבל הצעה?</summary>
             <p>אפשר להשאיר פרטים בטופס, לשלוח הודעה בווטסאפ או להתקשר ישירות למספר 054-4411665 ולקבל מענה מהיר.</p>
-          </article>
+          </details>
         </div>
       </section>
 
-      <section class="contact-section reveal" id="contact">
+      <section class="contact-section reveal" id="contact" aria-labelledby="contactTitle">
         <div class="contact-copy">
           <p class="eyebrow">גם אתם רוצים לעבוד איתנו?</p>
-          <h2>השאירו פרטים וקבלו ייעוץ ראשוני לעסק שלכם</h2>
+          <h2 id="contactTitle">השאירו פרטים וקבלו ייעוץ ראשוני לעסק שלכם</h2>
           <p>
             השאירו פרטים ונחזור אליכם עם כיוון ברור לפתרון המחשוב, האבטחה או התמיכה שמתאים לעסק שלכם.
           </p>
@@ -388,7 +403,7 @@
           <div class="contact-options">
             <a class="contact-option whatsapp-link" data-whatsapp-text="שלום, אני מעוניין/ת לקבל ייעוץ על שירותי המחשוב." data-lead-source="contact-whatsapp" href="https://wa.me/972544411665?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%20%D7%94%D7%9E%D7%97%D7%A9%D7%95%D7%91." target="_blank" rel="noreferrer">
               <strong>ווטסאפ</strong>
-              <span>מענה מהיר וישיר למספר 054-4411665</span>
+              <span>מענה מהיר וישיר במספר 054-4411665</span>
             </a>
 
             <a class="contact-option" href="tel:0544411665">
@@ -396,15 +411,11 @@
               <span>אפשר גם להתקשר ישירות עכשיו</span>
             </a>
 
-            <a class="contact-option" href="mailto:IDAN_pc@walla.co.il">
+            <a class="contact-option" href="mailto:lior@my365.co.il">
               <strong>אימייל</strong>
-              <span>IDAN_pc@walla.co.il</span>
+              <span>lior@my365.co.il</span>
             </a>
 
-            <a class="contact-option contact-option-download" href="https://anydesk.com/en/downloads" target="_blank" rel="noreferrer">
-              <strong>הורדת AnyDesk</strong>
-              <span>להתחברות מהירה לתמיכה מרחוק במקרה הצורך</span>
-            </a>
           </div>
         </div>
 
@@ -414,30 +425,32 @@
           action=""
           method="POST"
           novalidate
+          aria-labelledby="contactFormTitle"
+          aria-describedby="contactFormHelp formFeedback"
         >
           <div class="form-intro">
-            <strong>השאירו פרטים</strong>
-            <span>נחזור אליכם עם מענה ממוקד, ברור ומהיר ככל האפשר.</span>
+            <h3 id="contactFormTitle">השאירו פרטים</h3>
+            <p id="contactFormHelp">כתבו שם, מייל וטלפון ובמה נוכל לעזור ונחזור אליכם עם מענה ממוקד, ברור ומהיר ככל האפשר.</p>
           </div>
 
-          <label>
+          <label for="contactName">
             <span>שם</span>
-            <input type="text" name="name" placeholder="השם המלא שלכם" required>
+            <input id="contactName" type="text" name="name" placeholder="השם המלא שלכם" autocomplete="name" required aria-required="true">
           </label>
 
-          <label>
+          <label for="contactEmail">
             <span>מייל</span>
-            <input type="email" name="email" placeholder="name@company.co.il" required>
+            <input id="contactEmail" type="email" name="email" placeholder="name@company.co.il" autocomplete="email" required aria-required="true">
           </label>
 
-          <label>
+          <label for="contactPhone">
             <span>טלפון</span>
-            <input type="tel" name="phone" placeholder="054-4411665" required>
+            <input id="contactPhone" type="tel" name="phone" placeholder="054-4411665" autocomplete="tel" required aria-required="true">
           </label>
 
-          <label>
+          <label for="contactMessage">
             <span>איך נוכל לעזור?</span>
-            <textarea name="message" rows="5" placeholder="ספרו לנו על העסק, האתגר או השירות שמעניין אתכם"></textarea>
+            <textarea id="contactMessage" name="message" rows="5" placeholder="ספרו לנו על העסק, האתגר או השירות שמעניין אתכם"></textarea>
           </label>
 
           <button class="button button-primary submit-button" type="submit">שלחו פרטים</button>
@@ -447,6 +460,20 @@
     </main>
 
     <footer class="site-footer">
+      <div class="footer-seo">
+        <h2>שירותי מחשוב לעסקים, אבטחת מידע ותמיכת IT</h2>
+        <p>
+          עידן המחשבים מספקת פתרונות מחשוב לעסקים קטנים וגדולים: פריסת רשתות תקשורת וסיבים אופטיים,
+          התקנת שרתים ומצלמות אבטחה, גיבוי מידע, Firewall, אנטי וירוס, דואר אלקטרוני מאובטח ותמיכה שוטפת.
+          ניתן ליצור קשר בטלפון, בווטסאפ או במייל ולקבל מענה מקצועי לתקלות מחשוב, שרתים ורשתות.
+        </p>
+      </div>
+
+      <nav class="footer-tools" aria-label="קישורי שירות ותמיכה">
+        <a href="ticket-form.html" target="_blank" rel="noopener">פתיחת תקלה</a>
+        <a href="https://anydesk.com/en/downloads" target="_blank" rel="noreferrer">הורדת AnyDesk</a>
+      </nav>
+
       <p>כל הזכויות שמורות ל"עידן המחשבים" 2026.</p>
     </footer>
   </div>

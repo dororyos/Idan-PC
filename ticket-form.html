@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס פתיחת תקלה | עידן המחשבים</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="assets/logos/לוגו.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="ticket-form.css">
+</head>
+<body>
+  <main class="ticket-page">
+    <form class="ticket-form" id="ticketForm">
+      <header class="ticket-header">
+        <div class="ticket-meta">
+          <span id="currentTime"></span>
+          <span id="currentDate"></span>
+        </div>
+
+        <div class="ticket-brand">
+          <img src="assets/logos/לוגו.jpg" alt="לוגו עידן המחשבים">
+          <strong>054-4411665</strong>
+        </div>
+      </header>
+
+      <section class="ticket-title" aria-labelledby="ticketTitle">
+        <p>פתיחת תקלה - עידן המחשבים</p>
+        <h1 id="ticketTitle">טופס פתיחת תקלה</h1>
+      </section>
+
+      <section class="form-grid" aria-label="פרטי התקלה">
+        <label>
+          <span>שם עסק/לקוח:</span>
+          <input type="text" name="clientName" autocomplete="organization" required>
+        </label>
+
+        <label>
+          <span>נספח לחשבונית מס מספר:</span>
+          <input type="text" name="invoiceNumber" inputmode="numeric">
+        </label>
+
+        <label>
+          <span>תאריך:</span>
+          <input type="date" name="ticketDate" id="ticketDate" required>
+        </label>
+
+        <label>
+          <span>שם טכנאי מבצע:</span>
+          <input type="text" name="technicianName" autocomplete="name">
+        </label>
+
+        <label>
+          <span>שעות עבודה:</span>
+          <select name="workHours">
+            <option value="">בחרו</option>
+            <option>עד שעה</option>
+            <option>עד שעתיים</option>
+            <option>עד שלוש שעות</option>
+            <option>חצי יום</option>
+            <option>יום עבודה</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="stacked-fields" aria-label="תיאור העבודה">
+        <label>
+          <span>הערות:</span>
+          <textarea name="notes" rows="4" placeholder="לדוגמה: מערכת ניהול תקולה"></textarea>
+        </label>
+
+        <label>
+          <span>פירוט העבודה/ביצוע:</span>
+          <textarea name="workDetails" rows="7" placeholder="פרטו את הפעולות שבוצעו, בדיקות, התקנות, תיקונים והמלצות"></textarea>
+        </label>
+
+        <label>
+          <span>פירוט הציוד:</span>
+          <textarea name="equipmentDetails" rows="6" placeholder="ציוד שהותקן, הוחלף או נמסר ללקוח"></textarea>
+        </label>
+      </section>
+
+      <section class="closure-section" aria-labelledby="closureTitle">
+        <h2 id="closureTitle">סגירת תקלה</h2>
+        <fieldset>
+          <legend>האם התקלה נסגרה?</legend>
+          <label class="radio-line">
+            <input type="radio" name="ticketClosed" value="yes" checked>
+            <span>כן</span>
+          </label>
+          <label class="radio-line">
+            <input type="radio" name="ticketClosed" value="no">
+            <span>לא</span>
+          </label>
+        </fieldset>
+      </section>
+
+      <section class="signature-section" aria-labelledby="signatureTitle">
+        <div class="signature-heading">
+          <h2 id="signatureTitle">חתימת הלקוח</h2>
+          <p>חתמו בתוך המסגרת באמצעות עכבר, עט מגע או אצבע במובייל.</p>
+        </div>
+
+        <div class="signature-pad-wrap">
+          <canvas id="signatureCanvas" tabindex="0" aria-label="משטח חתימה אלקטרונית" aria-describedby="signatureHelp"></canvas>
+        </div>
+        <p class="signature-help" id="signatureHelp">במובייל ניתן לחתום עם האצבע. במחשב ניתן לחתום עם העכבר.</p>
+
+        <div class="signature-actions">
+          <button type="button" class="secondary-button" id="clearSignature">Clear</button>
+          <button type="button" class="secondary-button" id="saveSignature">Save as PNG</button>
+        </div>
+
+        <label class="base64-output">
+          <span>Base64 של החתימה:</span>
+          <textarea id="signatureBase64" name="signatureBase64" rows="4" readonly></textarea>
+        </label>
+      </section>
+
+      <label class="approval-line">
+        <input type="checkbox" name="clientApproval" required>
+        <span>חתימה על דו"ח זה מאשרת בזאת קבלת הציוד והתקנתו וביצוע העבודות הנ"ל לשביעות רצונו המלאה של הלקוח.</span>
+      </label>
+
+      <footer class="form-actions">
+        <button type="submit" class="primary-button">שמירת הטופס</button>
+        <button type="button" class="secondary-button" id="printForm">הדפסה / שמירה כ-PDF</button>
+      </footer>
+
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.2.0/dist/signature_pad.umd.min.js"></script>
+  <script src="ticket-form.js"></script>
+</body>
+</html>
